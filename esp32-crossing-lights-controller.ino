@@ -12,8 +12,8 @@ String *wifiPassword;
 String *wifiSsid;
 bool flashing = false;
 
-const uint8_t evenPins[2] = {D8, D10};
-const uint8_t oddPins[2] = {D7, D9};
+const uint8_t evenPins[2] = {D6, D8};
+const uint8_t oddPins[2] = {D5, D7};
 
 void setup()
 {
