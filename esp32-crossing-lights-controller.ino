@@ -21,7 +21,7 @@ void setup()
     Serial.begin(115200);
 #endif
     log_d("Initialising config document");
-    DynamicJsonDocument config(4096);
+    JsonDocument config;
     loadConfig(config);
 
     log_d("Loading parameters");
@@ -48,6 +48,10 @@ void setup()
     log_d("Connecting to the MQTT server: %s on port: %d", ipAdress->c_str(), port);
     client.setMqttServer(ipAdress->c_str(), username->c_str(), password->c_str(), port);
     log_i("Connected to the MQTT server");
+
+    log_d("Enabling remote software update");
+    client.enableHTTPWebUpdater();
+    client.enableOTA();
 
     for (int i = 0; i < 2; i++)
     {
